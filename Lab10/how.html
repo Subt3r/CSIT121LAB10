@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>How to Use the Web Animations API — Examples</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="container" role="document" aria-labelledby="pageTitle">
+    <header>
+      <h1 id="pageTitle">How to Use the Web Animations API</h1>
+      <nav role="navigation" aria-label="Main navigation">
+        <a href="what.html">What</a>
+        <a href="why.html">Why</a>
+        <a href="how.html">How (Examples)</a>
+        <a href="sources.html">Sources</a>
+      </nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <article aria-labelledby="howTitle">
+        <h2 id="howTitle">Examples and patterns</h2>
+
+        <p><strong>Paragraph 1.</strong> Using the Web Animation API usually starts by selecting an element and calling the animate method on it. this method takes two things, a set of keyframes and some animation settings. Keyframes describe change over a course of time, such as an element moving or fading.</p>
+
+        <p><strong>Paragraph 2.</strong> These elements can use simple Keyframes to animate basic properties. An example is, you can fade elements from insivible to visible or even move them back and forth from one position to another. The animation settings even let you choose how long the animation will last and how many times if at all it repeats.</p>
+
+        <p><strong>Paragraph 3.</strong> You can also interact with aniamtions after they start. An example would be if you were to pause, reverse, or change the speed of the animation using JavaScript. This allows developers to make their animations respond to buttons, scrolling, or any other actions, which can create more interactive web pages.</p>
+
+        <h3>Live Demo</h3>
+        <p>This demo shows a simple animation created and controlled via the Web Animations API. Use the accessible controls below to play, pause, or reverse.</p>
+
+        <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
+          <div id="animBox" aria-live="polite" style="width:140px;height:140px;background:linear-gradient(135deg,#ff7a59,#ffcc00);border-radius:12px;"></div>
+
+          <div>
+            <button id="playBtn" class="btn" aria-controls="animBox">Play</button>
+            <button id="pauseBtn" class="btn" aria-controls="animBox">Pause</button>
+            <button id="reverseBtn" class="btn" aria-controls="animBox">Reverse</button>
+            <button id="finishBtn" class="btn" aria-controls="animBox">Finish</button>
+          </div>
+        </div>
+
+        <h4>Code (Web Animations API)</h4>
+        <pre><code id="codeBlock">
+// create animation
+const box = document.getElementById('animBox');
+const animation = box.animate(
+  [
+    { transform: 'translateY(0) rotate(0deg)', opacity:1 },
+    { transform: 'translateY(-40px) rotate(10deg)', opacity:0.9 },
+    { transform: 'translateY(0) rotate(0deg)', opacity:1 }
+  ],
+  {
+    duration: 1400,
+    iterations: Infinity,
+    easing: 'cubic-bezier(.36,.07,.19,.97)'
+  }
+);
+
+// controls
+document.getElementById('playBtn').addEventListener('click', ()=>animation.play());
+document.getElementById('pauseBtn').addEventListener('click', ()=>animation.pause());
+document.getElementById('reverseBtn').addEventListener('click', ()=>animation.reverse());
+document.getElementById('finishBtn').addEventListener('click', ()=>animation.finish());
+        </code></pre>
+
+      </article>
+    </main>
+
+    <footer>
+      <p>Example: Web Animations API used to create performant, script-driven animations.</p>
+    </footer>
+  </div>
+
+  <script>
+  // Inline script to activate the demo (same as the code above)
+  (function(){
+    const box = document.getElementById('animBox');
+    const animation = box.animate(
+      [
+        { transform: 'translateY(0) rotate(0deg)', opacity:1 },
+        { transform: 'translateY(-40px) rotate(10deg)', opacity:0.9 },
+        { transform: 'translateY(0) rotate(0deg)', opacity:1 }
+      ],
+      {
+        duration: 1400,
+        iterations: Infinity,
+        easing: 'cubic-bezier(.36,.07,.19,.97)'
+      }
+    );
+
+    document.getElementById('playBtn').addEventListener('click', ()=>animation.play());
+    document.getElementById('pauseBtn').addEventListener('click', ()=>animation.pause());
+    document.getElementById('reverseBtn').addEventListener('click', ()=>animation.reverse());
+    document.getElementById('finishBtn').addEventListener('click', ()=>animation.finish());
+  })();
+  </script>
+</body>
+</html>

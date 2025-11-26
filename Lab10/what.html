@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Web Animations API — What is it?</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="container" role="document" aria-labelledby="pageTitle">
+    <header>
+      <h1 id="pageTitle">Web Animations API</h1>
+      <nav role="navigation" aria-label="Main navigation">
+        <a href="what.html">What</a>
+        <a href="why.html">Why</a>
+        <a href="how.html">How (Examples)</a>
+        <a href="sources.html">Sources</a>
+      </nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <article aria-labelledby="whatTitle">
+        <h2 id="whatTitle">What is the Web Animations API?</h2>
+
+        <p><strong>Paragraph 1.</strong> Web Animations API is a browser-standard interface that gives developers access to the browser’s own animation engine, allowing them to animate DOM elements using JavaScript. Rather than relying entirely on CSS keyframe animations or transitions, WAAPI defines objects like Key frame Effect, Animation, and a shared timeline to make sure that animations, timing, and playblack can all be managed with code.</p>
+
+        <p><strong>Paragraph 2.</strong> .</p>Behind the scenes, Web Animation API works using two cooperating models being, the Timing Model which tracks when things should start, how long they last, playback rate, iterations, etc and the Animation Model which defines what the visual changes are the keyframes that transform element properties over time.
+
+        <p><strong>Paragraph 3.</strong> A simple way of using Web Animation API is via the element.animate() method that gives it  a list of Keyframes, and an options object, and the browser will animate the element.</p>
+      </article>
+
+      <aside class="card-grid" aria-labelledby="demoLabel">
+        <section class="card" aria-labelledby="demoLabel">
+          <h3 id="demoLabel">Quick demo (see How page for full example)</h3>
+          <p class="visually-hidden" id="demoDesc">A small animated box demonstrates a simple Web Animations API effect.</p>
+          <div style="padding:0.75rem;background:#fff;border-radius:6px;">
+            <div id="box" style="width:100px;height:100px;background:linear-gradient(45deg,#0077cc,#00bfa5);border-radius:8px;"></div>
+            <p style="margin-top:0.5rem;font-size:0.9rem;color:#333;">This box is animated via JavaScript on the <a href="how.html">How</a> page; the API controls keyframes and playback.</p>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <p>Lab 10 — Web Animations API</p>
+    </footer>
+  </div>
+</body>
+</html>
